@@ -6,7 +6,10 @@
 	<meta name="viewport" content="width=1024, user-scalable=no">
 
 	<title>jQuery kickstart</title>
-	
+
+    <script src="jquery-1.9.1.min.js"></script>
+
+
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="core/deck.core.css">
 	
@@ -20,13 +23,25 @@
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
 	<link rel="stylesheet" href="themes/style/web-2.0.css" />
-    <link rel="stylesheet" href="themes/style/bzd-overlay.css" />
+
+    <!-- prettify.js -->
+    <link rel="stylesheet" href="prettify.js/prettify.css" />
+	<script src="prettify.js/prettify.js" type="text/javascript"></script>
+
 
     <!--<link rel="stylesheet" href="themes/style/bzd-overlay.css"></link>-->
 
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
 	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
-	
+
+    <!-- Twitter Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+
+
+    <!-- bzd styles overlay -->
+    <link rel="stylesheet" href="themes/style/bzd-overlay.css" />
+
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
 
@@ -47,9 +62,7 @@
 
     <ul>
         <li>
-            <h3>
-            Wstęp do Javascript
-            </h3>
+            <h3>Wstęp do Javascript</h3>
         </li>
         <li>
             <h3>DOM - Document Object Model</h3>
@@ -64,11 +77,100 @@
 </section>
 
 
-    <!-- jQuery -->
+<!-- jQuery -->
+
+<section class="slide" id="dom">
+    <h2>DOM - Document Object Model</h2>
+    <ul>
+        <li class="slide"><h3>Obiektowa reprezentacja strony</h3>
+        <li class="slide"><h3>Drzewiasta</h3>
+        <li class="slide"><h3>Reprezentuje strukturę z HTML</h3>
+        <li class="slide"><h3>Jest "żywa" - ma podpięte zdarzenia</h3>
+        </li>
+    </ul>
+</section>
+
+
+<section class="slide"><h2>Co daje jQuery</h2>
+    <ul>
+        <li>wyszukiwanie elementów drzewa DOM</li>
+        <li>modyfikacja drzewa i zawartości elementów</li>
+        <li>zdarzenia</li>
+        <li>animacja</li>
+        <li>komunikacja z backendem</li>
+    </ul>
+</section>
+
+<section class="slide" id="selectors"><h2>Selektory</h2>
+
+    <pre class="pre-scrollable prettyprint htmlToText">
+<div>
+    <ul>
+        <li>jeden</li>
+        <li>dwa</li>
+        <li>trzy</li>
+    </ul>
+</div></pre>
+
+    <div class="container">
+
+
+    <div class="row">
+        <div class="span4">.s..</div>
+        </div>
+    <div class="row">
+
+        <div class="span3 offset2">.s..</div>
+    </div>
+    <div class="row">
+
+
+<div class="span1 ">div</div>
+
+<div class="span2 offset1 bbadge bbadge-success">ul</div>
+<div class="badge badge-warning">ul</div>
+<div class="badge badge-warning">ul</div>
+<div class="badge badge-warning">ul</div>
+<div class="badge badge-warning">ul</div>
+    </div>
+    </div>
+</section>
+
+<section class="slide"><h2>Talk is cheap</h2>
+    <h1>Show me the code</h1>
+</section>
+
 
 <section class="slide">
+<h2>Kod</h2>
 
+<pre class="prettyprint">
+
+var updateStates = function() {
+		var oc = options.classes,
+		osc = options.selectors.container,
+		old = $container.data('onSlide'),
+		$all = $();
+
+var updateStates = function() {
+		var oc = options.classes,
+		osc = options.selectors.container,
+		old = $container.data('onSlide'),
+		$all = $();
+
+</pre>
 </section>
+
+
+
+
+
+    <section class="slide"><h2>Co dalej?</h2>
+        http://try.jquery.com/
+        pluginy
+
+        prezentacje Tomasza Pęczka
+    </section>
 <!-- End slides. -->
 
 
@@ -100,7 +202,7 @@
 </div>
 
 <!-- Required JS files. -->
-<script src="jquery-1.9.1.min.js"></script>
+
 <script src="core/deck.core.js"></script>
 
 <!-- Extension JS files. Add or remove as needed. -->
@@ -115,8 +217,18 @@
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
 
+    (function( $ ) {
+        $.fn.htmlToText = function() {
+            console.log(this)
+            this.text(this.html())
+    };
+
+    })( jQuery );
+
     $   (function() {
         $.deck('.slide');
+        $('.htmlToText').htmlToText()
+        prettyPrint();
     });
 </script>
 </body>
