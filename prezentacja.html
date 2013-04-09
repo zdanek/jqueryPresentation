@@ -96,45 +96,144 @@
         <li>wyszukiwanie elementów drzewa DOM</li>
         <li>modyfikacja drzewa i zawartości elementów</li>
         <li>zdarzenia</li>
-        <li>animacja</li>
         <li>komunikacja z backendem</li>
+        <li>animacja</li>
+        <li>pluginy</li>
     </ul>
 </section>
+
+    <section ><h2>Zaczynamy</h2>
+        <h3>jQuery.com</h3>
+
+        <pre class="prettyprint htmlToText">
+
+<script src="jquery-1.9.1.min.js"></script>
+        </pre>
+
+        <pre class="prettyprint htmlToText slide">
+
+jQuery('selektor').operacja1().operacja2()...
+        </pre>
+        <pre class="prettyprint htmlToText slide">
+
+$('selektor').operacja1().operacja2()...
+        </pre>
+    </section>
+
+
+    <section class="slide"><h2>Selektory</h2>
+        Są punktem wejścia w jQuery
+        Pozwalają wybrać elementy strony
+        Są oparte o selektory CSS3
+
+    </section>
+
+    <section>
+        <h2>Selektory</h2>
+        <ul>
+            <li>*</li>
+            <li>E</li>
+            <li>E F</li>
+            <li>E > F</li>
+            <li>E:first-child</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Selektory</h2>
+        <ul>
+            <li>E:link</li>
+            <li>E + F</li>
+            <li>E[foo]</li>
+            <li>E[foo="warning"]</li>
+            <li>DIV.warning</li>
+            <li>E#myid</li>
+        </ul>
+    </section>
 
 <section class="slide" id="selectors"><h2>Selektory</h2>
 
+
+<div class="row">
+    <div class="span5">
     <pre class="pre-scrollable prettyprint htmlToText">
 <div>
-    <ul>
-        <li>jeden</li>
-        <li>dwa</li>
-        <li>trzy</li>
-    </ul>
+  <ul>
+    <li>jeden</li>
+    <li>dwa</li>
+  </ul>
+  <p>Trochę tekstu
+      <b>boldem</b>
+  </p>
 </div></pre>
+    </div>
+    <div class="span1"></div>
 
-    <div class="container">
-
-
+    <div class="span3">
     <div class="row">
-        <div class="span4">.s..</div>
+        <div class="span1 badge badge-info">div</div>
         </div>
     <div class="row">
-
-        <div class="span3 offset2">.s..</div>
+        <div class="span1">|----</div>
+        <div class="span1 badge badge-success">ul</div>
     </div>
     <div class="row">
-
-
-<div class="span1 ">div</div>
-
-<div class="span2 offset1 bbadge bbadge-success">ul</div>
-<div class="badge badge-warning">ul</div>
-<div class="badge badge-warning">ul</div>
-<div class="badge badge-warning">ul</div>
-<div class="badge badge-warning">ul</div>
+        <div class="span2 text-right">|------</div>
+        <div class="span1 badge badge-warning">li</div>
     </div>
+    <div class="row">
+        <div class="span2 text-right">|------</div>
+        <div class="span1 badge badge-warning">li</div>
     </div>
+    <div class="row">
+        <div class="span1">|----</div>
+        <div class="span1 badge badge-success">p</div>
+    </div>
+    <div class="row">
+        <div class="span2 text-right">|------</div>
+        <div class="span1 badge badge-warning">b</div>
+    </div>
+
+    </div>
+</div>
 </section>
+
+<section class="slide" id="selectors2"><h2>Selektory</h2>
+
+
+    <div class="row">
+        <div class="span5">
+    <pre class="pre-scrollable prettyprint htmlToText text-small">
+<div>
+  <ul>
+    <li>jeden</li>
+    <li>dwa</li>
+  </ul>
+  <p>Trochę tekstu
+    <strong>boldem</strong>
+  </p>
+</div></pre>
+        </div>
+        <div class="span1"></div>
+
+        <div class="span3">
+            <div>
+                <ul>
+                    <li>jeden</li>
+                    <li>dwa</li>
+                </ul>
+                <p>Trochę tekstu
+                    <strong>boldem</strong>
+                </p>
+            </div>
+            </div>
+        </div>
+    <div class="row">
+        <input class="jquerySelectors">
+    </div>
+
+    </section>
+
 
 <section class="slide"><h2>Talk is cheap</h2>
     <h1>Show me the code</h1>
@@ -219,13 +318,28 @@ var updateStates = function() {
 
     (function( $ ) {
         $.fn.htmlToText = function() {
-            console.log(this)
-            this.text(this.html())
-    };
-
+            this.each( function(idx, elem) {
+                var $elem = $(elem)
+                $elem.text($elem.html())
+            })
+        };
     })( jQuery );
 
+    (function($) {
+        $.fn.jquerySelectors = function() {
+            this.each( function(idx, elem) {
+                var $elem = $(elem)
+                $elem.click(function() {
+                    $elem.borderSelectedElement
+                })
+            })
+
+                borderSelectedElement
+
+        }
+    })(jQuery)
     $   (function() {
+        $('section').addClass('slide')
         $.deck('.slide');
         $('.htmlToText').htmlToText()
         prettyPrint();
