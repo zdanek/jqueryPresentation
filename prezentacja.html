@@ -36,7 +36,8 @@
 
     <!-- Twitter Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="bootstrap/js/bootstrap-popover.js"></script>-->
 
 
     <!-- bzd styles overlay -->
@@ -46,9 +47,46 @@
 	<script src="modernizr.custom.js"></script>
 
 
+    <script type="x-dom-example" id="dom-example">
+        <div class="span3">
+            <div class="row">
+                <div class="span1 badge badge-info">div</div>
+            </div>
+            <div class="row">
+                <div class="span1">|----</div>
+                <div class="span1 badge badge-success">ul</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">li</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">li</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">li</div>
+            </div>
+            <div class="row">
+                <div class="span1">|----</div>
+                <div class="span1 badge badge-success">p</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">b</div>
+            </div>
+
+        </div>
+    </script>
 
 </head>
 <body >
+
+
+
+
+
 
 <div class="deck-container">
 <!-- Begin slides. Just make elements with a class of slide. -->
@@ -58,8 +96,7 @@
 </section>
 
 <section class="slide" id="toc">
-        <h2>O czym będzie</h2>
-
+    <h2>O czym będzie</h2>
     <ul>
         <li>
             <h3>Wstęp do Javascript</h3>
@@ -80,7 +117,8 @@
 <!-- jQuery -->
 
 <section class="slide" id="dom">
-    <h2>DOM - Document Object Model</h2>
+    <h2>DOM</h2>
+    <p>Document Object Model</p>
     <ul>
         <li class="slide"><h3>Obiektowa reprezentacja strony</h3>
         <li class="slide"><h3>Drzewiasta</h3>
@@ -90,8 +128,55 @@
     </ul>
 </section>
 
+<section class="slide" id="dom2"><h2>DOM</h2>
 
-<section class="slide"><h2>Co daje jQuery</h2>
+
+    <div class="row">
+        <div class="span5">
+    <pre class="pre-scrollable prettyprint htmlToText">
+<div>
+    <ul>
+        <li>jeden</li>
+        <li>dwa</li>
+    </ul>
+    <p>Trochę tekstu
+        <b>boldem</b>
+    </p>
+</div></pre>
+        </div>
+        <div class="span1"></div>
+
+        <div class="span3">
+            <div class="row">
+                <div class="span1 badge badge-info">div</div>
+            </div>
+            <div class="row">
+                <div class="span1">|----</div>
+                <div class="span1 badge badge-success">ul</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">li</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">li</div>
+            </div>
+            <div class="row">
+                <div class="span1">|----</div>
+                <div class="span1 badge badge-success">p</div>
+            </div>
+            <div class="row">
+                <div class="span2 text-right">|------</div>
+                <div class="span1 badge badge-warning">b</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="slide"><h2>Czym jest jQuery</h2>
     <ul>
         <li>wyszukiwanie elementów drzewa DOM</li>
         <li>modyfikacja drzewa i zawartości elementów</li>
@@ -121,6 +206,38 @@ $('selektor').operacja1().operacja2()...
     </section>
 
 
+<section id="kickoff2"><h3>Zaczynamy</h3>
+<pre class="prettyprint ">&lt;html&gt;
+&lt;head>
+&lt;script src="jquery-1.9.1.min.js">&lt;/script>
+&lt;script&gt;
+    $(document).ready(function() {
+        $('button').click(function(){
+            alert('Wzywałeś Milordzie?')
+        })
+    })
+&lt;/script>
+&lt;/head>
+&lt;body>
+&lt;button>Przycisk&lt;/button>
+&lt;/body>
+&lt;/html>
+</pre>
+
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn">Przycisk</button>
+        <script type="text/javascript">
+            $('#kickoff2 button').click(function(){
+                alert('Wzywałeś Milordzie?')
+            })
+        </script>
+    </div>
+    <br />
+</section>
+
     <section class="slide"><h2>Selektory</h2>
         Są punktem wejścia w jQuery
         Pozwalają wybrać elementy strony
@@ -130,6 +247,7 @@ $('selektor').operacja1().operacja2()...
 
     <section>
         <h2>Selektory</h2>
+        <p>Zgodne z CSS3</p>
         <ul>
             <li>*</li>
             <li>E</li>
@@ -141,6 +259,7 @@ $('selektor').operacja1().operacja2()...
 
     <section>
         <h2>Selektory</h2>
+        <p>Zgodne z CSS3</p>
         <ul>
             <li>E:link</li>
             <li>E + F</li>
@@ -151,49 +270,61 @@ $('selektor').operacja1().operacja2()...
         </ul>
     </section>
 
+    <section>
+        <h2>Selektory</h2>
+        <p>Rozszerzenie jQuery</p>
+        <ul>
+            <li>E:button</li>
+            <li>E:checkbox</li>
+            <li>E:even</li>
+            <li>E:odd</li>
+            <li>E:eq(4)</li>
+            <li>E:lt(3)</li>
+            <li>E:gt(3)</li>
+        </ul>
+        <p><b>Uwaga na wydajność!</b></p>
+    </section>
+
+<section id="traverse">
+    <h2>Przemierzanie drzewa</h2>
+    <p>Traverse</p>
+    <div class="row">
+        <div class="span5">
+    <pre class="pre-scrollable prettyprint htmlToText">
+$('li:even')
+$('li').even()
+$('p').prev()
+$('ul').next()
+$('b').parent()
+    </pre>
+    </div>
+    <div class="span1"></div>
+    <div class="injectHtml" data-html-from="dom-example"></div>
+    <script>
+        $('#traverse .putHere').html($('#dom-example').html())
+    </script>
+</div>
+</section>
 <section class="slide" id="selectors"><h2>Selektory</h2>
 
 
 <div class="row">
     <div class="span5">
-    <pre class="pre-scrollable prettyprint htmlToText">
+    <pre class="pre-scrollable prettyprint htmlToText text-small">
 <div>
   <ul>
     <li>jeden</li>
     <li>dwa</li>
+    <li>trzy</li>
   </ul>
   <p>Trochę tekstu
-      <b>boldem</b>
+      <strong>boldem</strong>
   </p>
 </div></pre>
     </div>
     <div class="span1"></div>
 
-    <div class="span3">
-    <div class="row">
-        <div class="span1 badge badge-info">div</div>
-        </div>
-    <div class="row">
-        <div class="span1">|----</div>
-        <div class="span1 badge badge-success">ul</div>
-    </div>
-    <div class="row">
-        <div class="span2 text-right">|------</div>
-        <div class="span1 badge badge-warning">li</div>
-    </div>
-    <div class="row">
-        <div class="span2 text-right">|------</div>
-        <div class="span1 badge badge-warning">li</div>
-    </div>
-    <div class="row">
-        <div class="span1">|----</div>
-        <div class="span1 badge badge-success">p</div>
-    </div>
-    <div class="row">
-        <div class="span2 text-right">|------</div>
-        <div class="span1 badge badge-warning">b</div>
-    </div>
-
+    <div class="injectHtml" data-html-from="dom-example">
     </div>
 </div>
 </section>
@@ -235,6 +366,156 @@ $('selektor').operacja1().operacja2()...
     </section>
 
 
+<section id="events">
+    <h2>Zdarzenia</h2>
+    <pre class="prettyprint">
+$('button').on('click',
+    function(event) {
+        alert(event);   //zdarzenie
+        alert(this);    //cel zdarzenia
+    } );
+    </pre>
+    <ul class="slide">
+        <li>click</li>
+        <li>mouseover</li>
+        <li>change</li>
+        <li>...</li>
+    </ul>
+</section>
+
+<section id="events2">
+    <h2>Zdarzenia</h2>
+    <p>Obiekt Event</p>
+    <p>właściwości</p>
+    <ul>
+        <li>target</li>
+        <li>pageX</li>
+        <li>pageY</li>
+        <li>which</li>
+    </ul>
+    <p>metody</p>
+    <ul><li>preventDefault()</li>
+    <li>stopPropagation()</li></ul>
+</section>
+
+<section id="events3">
+    <h2>Zdarzenia</h2>
+    <pre class="prettyprint">
+$('button').click(function(event) {
+    alert(event);
+    var $elem = $(event.target)
+    var $elem = $(this)
+    $(this).toggleClass('btn-success')
+});
+    </pre>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+            <button class="btn">Kliknij mnie</button>
+        <script type="text/javascript">
+            $('#events3 button').click(function(){
+                $(this).toggleClass('btn-success')
+            })
+        </script>
+    </div>
+</section>
+
+<section id="events4">
+    <h2>Zdarzenia</h2>
+    <pre class="prettyprint">
+$('button').mouseover(function(event) {
+        $(this).toggleClass('btn-info')
+    });
+    </pre>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+            <button class="btn">Najedź na mnie</button>
+        <script type="text/javascript">
+            $('#events4 button').mouseover(function(){
+                $(this).toggleClass('btn-info')
+            })
+        </script>
+    </div>
+</section>
+
+<section id="events5">
+    <h2>Zdarzenia</h2>
+    <pre class="prettyprint">
+$('button').on('mouseover mouseleave',
+    function(event) {
+        $(this).toggleClass('btn-info')
+    });
+    </pre>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+            <button class="btn">Najedź na mnie</button>
+        <script type="text/javascript">
+            $('#events5 button').on('mouseover mouseleave', function(){
+                $(this).toggleClass('btn-info')
+            })
+        </script>
+    </div>
+</section>
+
+<section id="events6">
+    <h2>Zdarzenia</h2>
+    <pre class="prettyprint">
+$('button').change(function(){
+    var $elem = $(this)
+    $elem.next()
+        .append($elem.val()).show()
+})
+    </pre>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <input placeholder="Napisz coś..." type="text" class="input-large"/>
+        <div style="display:none">Akuku! Wartość zmieniona!<br /></div>
+        <script type="text/javascript">
+            $('#events6 input').change(function(){
+                var $elem = $(this)
+                $elem.next().append($elem.val()).show()
+            })
+        </script>
+    </div>
+</section>
+
+<section id="ajax">
+    <h2>Ajax</h2>
+    <p>AJAX = Asynchronous JavaScript and XML<br/>
+    JSON = JavaScript Object Notation</p>
+
+    <pre class="prettyprint">
+
+["mama_tata",true,123]
+{"1":{"name":"Bartek","lang":"groovy"},"2":{"name":"Stefan","lang":"javascript"}}
+    </pre>
+</section>
+
+<section id="ajax2">
+    <h2>Ajax</h2>
+
+    <pre class="prettyprint text-small">
+var json_object = {};
+var http_req = new XMLHttpRequest();
+http_req.open("GET", url, true);
+http_req.onreadystatechange = function () {
+    var done = 4, ok = 200;
+    if (http_req.readyState == done
+        && http_req.status == ok) {
+    json_object = JSON.parse(http_req.responseText);
+    }
+};
+http_req.send(null);
+    </pre>
+</section>
+
 <section class="slide"><h2>Talk is cheap</h2>
     <h1>Show me the code</h1>
 </section>
@@ -259,6 +540,7 @@ var updateStates = function() {
 
 </pre>
 </section>
+
 
 
 
@@ -333,15 +615,21 @@ var updateStates = function() {
                     $elem.borderSelectedElement
                 })
             })
+        }})(jQuery);
 
-                borderSelectedElement
+    (function($) {
+        $.fn.injectHtml = function() {
+            this.each( function(idx, elem) {
+                var $elem = $(elem)
+                $elem.html($('#' + $elem.attr('data-html-from')).html())
+            })
+        }})(jQuery);
 
-        }
-    })(jQuery)
-    $   (function() {
+    $(function() {
         $('section').addClass('slide')
         $.deck('.slide');
         $('.htmlToText').htmlToText()
+        $('.injectHtml').injectHtml()
         prettyPrint();
     });
 </script>
