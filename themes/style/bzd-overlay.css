@@ -39,6 +39,10 @@ div.example {
     padding: 20px;
 
 }
+
+h1.end {
+    position:relative;
+}
 /*pre.prettyprint {*/
     /*width: 100%;*/
     /*border: 1px solid red;*/
