@@ -80,7 +80,7 @@
 
         </div>
     </script>
-    <script type="x-example" id="jsmod-example">
+    <script type="x-example" id="replaceNode-example">
 $('button').click(function(){
 var $label = $('<span>')
         .text('Dziękujemy za oddany głos')
@@ -88,6 +88,19 @@ var $label = $('<span>')
 $(this).replaceWith($label)
 })
 </span></script>
+
+    <script type="x-example" id="add-after-example">
+$('button').click(function(){
+var $label = $('<span>')
+        .text('Dziękujemy za oddany głos')
+        .addClass('text-error');
+$(this).after($label);  //istnieje before
+})
+</span></script>
+
+    <script type="x-example" id="text-example">
+$('span').text('Tralla <strong>la!</strong>');
+    </script>
 
 </head>
 <body >
@@ -101,7 +114,27 @@ $(this).replaceWith($label)
 <!-- Begin slides. Just make elements with a class of slide. -->
 
 <section class="slide" id="start">
-	<h1>dzień dobry</h1>
+    <h1>jQuery kickstart</h1>
+</section>
+
+<section class="slide" id="start2">
+    <h2>jQuery kickstart</h2>
+    <div class="row">
+        <div class="span4" >
+            <img src="images/bzd-tlab1.png" class="img-rounded" />
+        </div>
+        <div class="span3">
+            <img src="images/wjug.png" class="img-rounded slide"/>
+            <img src="images/confitura_2013_sm.png" class="img-rounded slide"/>
+        </div>
+        <div class="span3">
+            <img src="images/touk-logo.png" class="img-rounded slide"/>
+        </div>
+    </div>
+    <div class="row slide">
+        <div class="span5">blog.bartekzdanowski.pl <img src="images/blogger.png" class="pull-left" /> </div>
+        <div class="span5">@bartekzdanowski <img src="images/twitter.png" class="pull-left"/> </div>
+    </div>
 </section>
 
 <section class="slide" id="toc">
@@ -122,6 +155,137 @@ $(this).replaceWith($label)
     </ul>
 </section>
 
+<!-- JS -->
+<section id="javascript" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Zmienne</h3>
+                <pre>
+var name = 'Bartek'
+
+function test() {
+var a = 1;
+b = 2;
+
+console.log(a);
+console.log(b);
+console.log(name);
+}</pre>
+
+</section>
+
+<section id="javascript1" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Zmienne/scope</h3>
+                <pre>
+var name = 'Bartek'
+
+function test() {
+var a = 1;
+b = 2;
+}
+test()
+console.log(a);
+console.log(b);
+console.log(name);
+                </pre>
+</section>
+<section id="javascript2" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Funkcje</h3>
+                <pre>
+function(a, b) {
+return a + b;
+}
+
+function addTwoNumbers(a, b) {
+return a + b;
+}
+
+var addTwoNumbers = function(a, b) {
+return a + b;
+};
+                </pre>
+</section>
+<section id="javascript3" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Obiekty</h3>
+    <p>Jedyne prymitywy</p>
+                <pre>
+* string (text)
+* boolean (true/false)
+* number
+* undefined
+* null
+                </pre>
+</section>
+<section id="javascript4" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Obiekty</h3>
+    <p>Mapy</p>
+                <pre>
+var map = {
+    ala: 'ma kota',
+    julek: 'ma pieska'
+}
+
+console.log(map.ala)
+console.log(map['ala'])
+                </pre>
+</section>
+<section id="javascript5" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Obiekty</h3>
+
+                <pre>
+var map = {
+    ala: 'ma kota',
+
+    foo : function(name) {
+        return name + ' ' + this.ala
+    }
+}
+
+console.log(map.foo('Bartek')
+                </pre>
+</section>
+<section id="javascript6" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Obiekty</h3>
+    <p>Tablice</p>
+                <pre>
+var simpleArray = [ 'a', 'b', 'c' ];
+var len = simpleArray.length;
+console.log(len)
+                </pre>
+</section>
+<section id="javascript7" class="slide">
+    <div class="page-header">
+        <h2>Javascript</h2>
+    </div>
+    <h3>Logika - prawdziwość</h3>
+    <p>Jedyne wartości, które zwracają false</p>
+    <ul>
+        <li>undefined</li>
+        <li>null</li>
+        <li>NaN ("not a number")</li>
+        <li>0 (zero)</li>
+        <li>'' (pusty string)</li>
+    </ul>
+</section>
 
 <!-- jQuery -->
 
@@ -374,14 +538,158 @@ $('b').parent()
 
     </section>
 
-<section id="domchange"><h2>Modyfikacja</h2>
+<section id="manipulation"><h2>Manipulacja</h2>
+    <ul>
+        <li>zmiana atrybutów</li>
+        <li>zmiana klas (CSS)</li>
+        <li>DOM - modyfikacja wnętrza</li>
+        <li>DOM - opakowywanie</li>
+        <li>DOM - doklejanie</li>
+        <li>DOM - usuwanie i podmiana</li>
+    </ul>
+</section>
 
+<section id="manipulation2"><h2>Manipulacja</h2>
+<p>zmiana atrybutów</p>
+    <pre class="prettyprint">
+
+$('img').attr('src', 'images/bzd-tlab2.png')
+    </pre>
+    <img src="images/bzd-tlab1.png" class="img-rounded" title="images/bzd-tlab1.png" />
+
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn">Zmień obrazek</button>
+        <script type="text/javascript">
+            $('#manipulation2 button').click(function(){
+                $(this).toggleClass('btn-danger')
+                var $img = $('#manipulation2 img')
+
+                if ($img.attr('changed')) {
+                    $img.attr({src: 'images/bzd-tlab1.png',
+                        title: 'images/bzd-tlab1.png'});
+                    $img.removeAttr('changed')
+                } else {
+                $img.attr({src: 'images/bzd-tlab2.png',
+                        title: 'images/bzd-tlab2.png',
+                        changed: 1});
+                }
+            })
+        </script>
+    </div>
+    <br />
+</section>
+
+<section id="manipulationcss"><h2>Manipulacja</h2>
+<p>zmiana styli</p>
+    <pre class="prettyprint">
+
+$('button').addClass('btn-danger');
+$('button').removeClass('btn-success');
+$('button').toggleClass('btn-warning');
+$('button').hasClass('btn-success');
+$('button').css('border', '5 solid red');
+    </pre>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn btn-success">AddClass</button>
+        <button class="btn ">ToggleClass</button>
+        <button class="btn btn-inverse">AddStyle</button>
+        <script type="text/javascript">
+            $('#manipulationcss button.btn-success').click(function(){
+                $(this).removeClass('btn-success').addClass('btn-danger')
+            })
+            $('#manipulationcss button[text!=ToggleClass]').click(function(){
+                $(this).css('border', '5px solid red');
+            })
+        </script>
+    </div>
+</section>
+
+<section id="manipulation3"><h2>Manipulacja</h2>
+<p>zmiana wartości - znacznik statyczny</p>
+    <pre class="prettyprint">
+
+$('span').text('Tralla &lt;strong&gt;la!&lt;/strong&gt;');
+    </pre>
+    <div class="well example">
+
+        <div class="row"><div class="span1"></div>
+            <span class="text-success">Tu jest span</span></div>
+        <div class="row">
+        <div class="span1"></div>
+
+
+        <button class="btn">Zmień treść</button>
+        <script type="text/javascript">
+            $('#manipulation3 button').click(function() {
+                $('#manipulation3 span.text-success').text('Tralla <strong>la!</strong>');
+            })
+        </script>
+        </div>
+    </div>
+</section>
+
+<section id="manipulation3b"><h2>Manipulacja</h2>
+<p>zmiana html</p>
+    <pre class="prettyprint">
+
+$('span').html('Tralla &lt;strong&gt;la!&lt;/strong&gt;');
+    </pre>
+    <div class="well example">
+
+        <div class="row"><div class="span1"></div>
+            <span class="text-success">Tu jest span</span></div>
+        <div class="row">
+        <div class="span1"></div>
+
+
+        <button class="btn">Zmień treść</button>
+        <script type="text/javascript">
+            $('#manipulation3b button').click(function() {
+                $('#manipulation3b span.text-success').html('Tralla <strong>la!</strong>');
+            })
+        </script>
+        </div>
+    </div>
+</section>
+
+<section id="manipulation4"><h2>Manipulacja</h2>
+<p>zmiana wartości - pole tekstowe</p>
+    <pre class="prettyprint">
+
+$('input').val('Tralla la!');
+    </pre>
+    <div class="well example">
+
+        <div class="row"><div class="span1"></div>
+            <input class="input-large" value="Tu jest input"/></div>
+        <div class="row">
+            <div class="span1"></div>
+
+
+            <button class="btn">Zmień treść</button>
+            <script type="text/javascript">
+                $('#manipulation4 input').val('Tu jest input');
+                $('#manipulation4 button').click(function() {
+                    $('#manipulation4 input').val('Tralla la!');
+                })
+            </script>
+        </div>
+    </div>
+</section>
+
+<section id="domchange1"><h2>Manipulacja</h2>
     <pre class="prettyprint"></pre>
     <script>
-        var jsHtml = $('#jsmod-example').html()
+        var jsHtml = $('#add-after-example').html()
         //musze w snipecie zamknac span a potem go usunac z htmla, inaczej przegladarka sama dodaje zamkniecie span
         var snip = jsHtml.trim().substr(0, jsHtml.length - ' /span> '.length)
-        $('#domchange pre').text(snip);
+        $('#domchange1 pre').text(snip);
     </script>
     <div class="well example">
 
@@ -389,9 +697,37 @@ $('b').parent()
 
         <button class="btn">Zagłosuj</button>
         <script type="text/javascript">
-            $('#domchange button').click(function(){
+            votesCount = 1
+            $('#domchange1 button').click(function(){
                 var $label = $('<span>')
-                    .text('Dziękujemy za oddany głos')
+                        .text('Dziękujemy za oddany ' + votesCount + ' głos')
+                        .addClass('text-error')
+                $(this).after($label);  //istnieje before
+                votesCount++
+            })
+        </script>
+    </div>
+
+</section>
+
+<section id="domchange2"><h2>Manipulacja</h2>
+
+    <pre class="prettyprint"></pre>
+    <script>
+        var jsHtml = $('#replaceNode-example').html()
+        //musze w snipecie zamknac span a potem go usunac z htmla, inaczej przegladarka sama dodaje zamkniecie span
+        var snip = jsHtml.trim().substr(0, jsHtml.length - ' /span> '.length)
+        $('#domchange2 pre').text(snip);
+    </script>
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn">Zagłosuj</button>
+        <script type="text/javascript">
+            $('#domchange2 button').click(function(){
+                var $label = $('<span>')
+                    .text('Dziękujemy za oddany ' + votesCount + ' głos')
                     .addClass('text-error')
                 $(this).replaceWith($label)
             })
@@ -400,6 +736,9 @@ $('b').parent()
 
 </section>
 
+
+<section id="domchange3"><h2>Manipulacja</h2>
+</section>
 
 
 
@@ -676,6 +1015,8 @@ $.ajax({
 	<span class="deck-status-total"></span>
 </p>
 
+<img class="conf-logo" src="images/4developers-logo-s.png" />
+
 <!-- deck.goto snippet -->
 <form action="." method="get" class="goto-form">
 	<label for="goto-slide">Go to slide:</label>
@@ -738,6 +1079,7 @@ $.ajax({
         $.deck('.slide');
         $('.htmlToText').htmlToText()
         $('.injectHtml').injectHtml()
+
         prettyPrint();
     });
 </script>
