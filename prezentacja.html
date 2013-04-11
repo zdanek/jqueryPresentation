@@ -48,7 +48,7 @@
 	<script src="modernizr.custom.js"></script>
 
 
-    <script type="x-dom-example" id="dom-example">
+    <script type="x-example" id="dom-example">
         <div class="span3">
             <div class="row">
                 <div class="span1 badge badge-info">div</div>
@@ -80,6 +80,14 @@
 
         </div>
     </script>
+    <script type="x-example" id="jsmod-example">
+$('button').click(function(){
+var $label = $('<span>')
+        .text('Dziękujemy za oddany głos')
+        .addClass('text-error')
+$(this).replaceWith($label)
+})
+</span></script>
 
 </head>
 <body >
@@ -368,14 +376,13 @@ $('b').parent()
 
 <section id="domchange"><h2>Modyfikacja</h2>
 
-    <pre class="prettyprint htmlToText">
-$('button').click(function(){
-    var $label = $('<span>')
-        .text('Dziękujemy za oddany głos')
-        .addClass('text-error')
-    $(this).replaceWith($label)
-})
-    </pre>
+    <pre class="prettyprint"></pre>
+    <script>
+        var jsHtml = $('#jsmod-example').html()
+        //musze w snipecie zamknac span a potem go usunac z htmla, inaczej przegladarka sama dodaje zamkniecie span
+        var snip = jsHtml.trim().substr(0, jsHtml.length - ' /span> '.length)
+        $('#domchange pre').text(snip);
+    </script>
     <div class="well example">
 
         <div class="span1"></div>
@@ -392,6 +399,9 @@ $('button').click(function(){
     </div>
 
 </section>
+
+
+
 
 <section id="events">
     <h2>Zdarzenia</h2>
@@ -647,7 +657,7 @@ $.ajax({
 <section id="end">
     <h1 class="end">Dziękuję!</h1>
     <img src="images/bartek.png" style="position: relative; bottom: 1px"  />
-    </div>
+
 </section>
 
 <!-- End slides. -->
