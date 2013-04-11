@@ -49,7 +49,6 @@ h1.end {
     position: absolute;
     bottom: 10px;
     left: 5px;
-    color: #888;
     z-index: 3;
     margin: 0;
 }

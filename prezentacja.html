@@ -1047,6 +1047,35 @@ $.ajax({
 <!-- Initialize the deck. You can put this in an external file if desired. -->
 <script>
 
+    containerWidth = 0
+    amoutOfSlides = 0
+    currentSlide = 0
+
+    var finalLogoAnim = function() {
+        $('.conf-logo').animate({
+            left: (containerWidth / 2) + 'px',
+            bottom: '10%',
+                    //(containerHeight / 2 - 120) + 'px',
+            width: '92'
+        }, 2000, function() {
+            $(this).attr('src', 'images/4developers-logo.png')
+        })
+                //.delay(1000).animate({width: '1000%', left: 0, bottom: 0}, 1500)
+    }
+
+    var applyLogoPos = function(to) {
+        var logoPos = (containerWidth / amoutOfSlides) * to + 5
+        $('.conf-logo').css({left: logoPos, bottom: 10, width: 40})
+    }
+
+    $(document).bind('deck.change', function(event, from, to) {
+        applyLogoPos(to)
+        if (to == (amoutOfSlides - 1)) {
+            finalLogoAnim()
+        }
+    });
+
+
     (function( $ ) {
         $.fn.htmlToText = function() {
             this.each( function(idx, elem) {
@@ -1081,6 +1110,14 @@ $.ajax({
         $('.injectHtml').injectHtml()
 
         prettyPrint();
+
+        containerWidth = $('.deck-container').first().width()
+        containerHeight = $('.deck-container').first().height()
+        amoutOfSlides = $.deck('getSlides').length
+        currentSlide = $($.deck('getOptions').selectors.statusCurrent).text()
+
+        applyLogoPos(currentSlide)
+
     });
 </script>
 </body>
