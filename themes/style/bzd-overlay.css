@@ -52,6 +52,12 @@ h1.end {
     z-index: 3;
     margin: 0;
 }
+
+img.jquery-logo {
+    background-color:  #08455f;
+    padding:20px
+}
+
 /*pre.prettyprint {*/
     /*width: 100%;*/
     /*border: 1px solid red;*/

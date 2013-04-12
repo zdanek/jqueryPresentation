@@ -49,7 +49,7 @@
 
 
     <script type="x-example" id="dom-example">
-        <div class="span3">
+        <div class="span4">
             <div class="row">
                 <div class="span1 badge badge-info">div</div>
             </div>
@@ -75,7 +75,7 @@
             </div>
             <div class="row">
                 <div class="span2 text-right">|------</div>
-                <div class="span1 badge badge-warning">b</div>
+                <div class="span2 badge badge-warning">strong</div>
             </div>
 
         </div>
@@ -122,18 +122,20 @@ $('span').text('Tralla <strong>la!</strong>');
     <div class="row">
         <div class="span4" >
             <img src="images/bzd-tlab1.png" class="img-rounded" />
+            <p>Bartek Zdanowski</p>
         </div>
-        <div class="span3">
-            <img src="images/wjug.png" class="img-rounded slide"/>
-            <img src="images/confitura_2013_sm.png" class="img-rounded slide"/>
+        <div class="span3 slide">
+            <img src="images/wjug.png" class="img-rounded"/>
+            <img src="images/confitura_2013_sm.png" class="img-rounded"/>
         </div>
-        <div class="span3">
-            <img src="images/touk-logo.png" class="img-rounded slide"/>
+        <div class="span3 slide">
+            <img src="images/touk-logo.png" class="img-rounded "/>
+            <img src="images/logo-jquery.png" class="img-rounded jquery-logo"/>
         </div>
     </div>
     <div class="row slide">
-        <div class="span5">blog.bartekzdanowski.pl <img src="images/blogger.png" class="pull-left" /> </div>
-        <div class="span5">@bartekzdanowski <img src="images/twitter.png" class="pull-left"/> </div>
+        <div class="span5"> blog.bartekzdanowski.pl <img src="images/blogger.png" class="pull-left" /> </div>
+        <div class="span5"> @bartekzdanowski <img src="images/twitter.png" class="pull-left"/> </div>
     </div>
 </section>
 
@@ -155,13 +157,17 @@ $('span').text('Tralla <strong>la!</strong>');
     </ul>
 </section>
 
+<section>
+    <h1>Javascript</h1>
+</section>
+
 <!-- JS -->
 <section id="javascript" class="slide">
     <div class="page-header">
         <h2>Javascript</h2>
     </div>
     <h3>Zmienne</h3>
-                <pre>
+                <pre class="prettyprint">
 var name = 'Bartek'
 
 function test() {
@@ -180,7 +186,7 @@ console.log(name);
         <h2>Javascript</h2>
     </div>
     <h3>Zmienne/scope</h3>
-                <pre>
+                <pre class="prettyprint">
 var name = 'Bartek'
 
 function test() {
@@ -198,7 +204,7 @@ console.log(name);
         <h2>Javascript</h2>
     </div>
     <h3>Funkcje</h3>
-                <pre>
+                <pre class="prettyprint">
 function(a, b) {
 return a + b;
 }
@@ -218,7 +224,7 @@ return a + b;
     </div>
     <h3>Obiekty</h3>
     <p>Jedyne prymitywy</p>
-                <pre>
+                <pre class="prettyprint">
 * string (text)
 * boolean (true/false)
 * number
@@ -232,7 +238,7 @@ return a + b;
     </div>
     <h3>Obiekty</h3>
     <p>Mapy</p>
-                <pre>
+                <pre class="prettyprint">
 var map = {
     ala: 'ma kota',
     julek: 'ma pieska'
@@ -248,7 +254,7 @@ console.log(map['ala'])
     </div>
     <h3>Obiekty</h3>
 
-                <pre>
+                <pre class="prettyprint">
 var map = {
     ala: 'ma kota',
 
@@ -266,7 +272,7 @@ console.log(map.foo('Bartek')
     </div>
     <h3>Obiekty</h3>
     <p>Tablice</p>
-                <pre>
+                <pre class="prettyprint">
 var simpleArray = [ 'a', 'b', 'c' ];
 var len = simpleArray.length;
 console.log(len)
@@ -287,7 +293,9 @@ console.log(len)
     </ul>
 </section>
 
-<!-- jQuery -->
+<section>
+    <h1>DOM</h1>
+</section>
 
 <section class="slide" id="dom">
     <h2>DOM</h2>
@@ -297,6 +305,7 @@ console.log(len)
         <li class="slide"><h3>Drzewiasta</h3>
         <li class="slide"><h3>Reprezentuje strukturę z HTML</h3>
         <li class="slide"><h3>Jest "żywa" - ma podpięte zdarzenia</h3>
+        <li class="slide"><h3>Można ją modyfikować z JavaScriptu</h3>
         </li>
     </ul>
 </section>
@@ -305,8 +314,8 @@ console.log(len)
 
 
     <div class="row">
-        <div class="span5">
-    <pre class="pre-scrollable prettyprint htmlToText">
+        <div class="span6">
+    <pre class="prettyprint htmlToText">
 <div>
     <ul>
         <li>jeden</li>
@@ -319,7 +328,7 @@ console.log(len)
         </div>
         <div class="span1"></div>
 
-        <div class="span3">
+        <div class="span4">
             <div class="row">
                 <div class="span1 badge badge-info">div</div>
             </div>
@@ -341,13 +350,24 @@ console.log(len)
             </div>
             <div class="row">
                 <div class="span2 text-right">|------</div>
-                <div class="span1 badge badge-warning">b</div>
+                <div class="span2 badge badge-warning">strong</div>
             </div>
 
         </div>
     </div>
 </section>
 
+<section>
+    <h1>jQuery</h1>
+</section>
+
+
+<section class="slide"><h2>Czym jest jQuery</h2>
+    <img src="images/logo-jquery.png" class="jquery-logo"/>
+    <h3>Biblioteką unifikującą dostęp do zawartości bieżącej strony</h3>
+    <p>Wsparcie dla IE6+ dla jQ 1.x oraz 9+ dla jQ 2.x</p>
+    <p>Bieżąca i poprzednia wersja: Chrome, Firefox, Safari, Opera</p>
+</section>
 
 <section class="slide"><h2>Czym jest jQuery</h2>
     <ul>
@@ -411,16 +431,23 @@ $('selektor').operacja1().operacja2()...
     <br />
 </section>
 
-    <section class="slide"><h2>Selektory</h2>
-        Są punktem wejścia w jQuery
-        Pozwalają wybrać elementy strony
-        Są oparte o selektory CSS3
+<section>
+    <h1>Selektory</h1>
+</section>
+
+
+<section class="slide"><h2>Selektory</h2>
+        <ul>
+            <li>Są punktem wejścia w jQuery</li>
+            <li>Pozwalają wybrać elementy strony</li>
+            <li>Są oparte o selektory CSS3</li>
+        </ul>
 
     </section>
 
     <section>
         <h2>Selektory</h2>
-        <p>Zgodne z CSS3</p>
+        <p>Zgodne z <b>CSS3</b></p>
         <ul>
             <li>*</li>
             <li>E</li>
@@ -438,7 +465,7 @@ $('selektor').operacja1().operacja2()...
             <li>E + F</li>
             <li>E[foo]</li>
             <li>E[foo="warning"]</li>
-            <li>DIV.warning</li>
+            <li>E.styleClass</li>
             <li>E#myid</li>
         </ul>
     </section>
@@ -455,8 +482,36 @@ $('selektor').operacja1().operacja2()...
             <li>E:lt(3)</li>
             <li>E:gt(3)</li>
         </ul>
-        <p><b>Uwaga na wydajność!</b></p>
+        <p><strong>Uwaga na wydajność!</strong></p>
     </section>
+
+<section>
+<h2>Selektory</h2>
+    <a href="selectors.html" target="_blank"><h1>demo</h1></a>
+</section>
+
+    <section>
+        <h2>Selektory</h2>
+        <h3>$('selektor') == obiektJQuery</h3>
+        <ul>
+            <li>selektor wybiera wszystkie pasujące elementy</li>
+            <li>obiekt jQuery zawiera w sobie kolekcję
+                <ul>
+                    <li>wieloelementową</li>
+                    <li>jednoelementową</li>
+                    <li>pustą</li>
+                </ul>
+            </li>
+            <li>obiekt jQuery opakowuje obiekt Element</li>
+        </ul>
+        <p><strong>Modyfikacja obiektu jQuery z pustą kolekcją nie powoduje błędów</strong></p>
+    </section>
+
+
+<section>
+    <h1>Przemierzanie drzewa</h1>
+</section>
+
 
 <section id="traverse">
     <h2>Przemierzanie drzewa</h2>
@@ -464,11 +519,13 @@ $('selektor').operacja1().operacja2()...
     <div class="row">
         <div class="span5">
     <pre class="pre-scrollable prettyprint htmlToText">
-$('li:even')
 $('li').even()
 $('p').prev()
 $('ul').next()
-$('b').parent()
+$('strong').parent()
+$('ul').children()
+$('div').find()
+        <strong>sdfsd</strong>
     </pre>
     </div>
     <div class="span1"></div>
@@ -477,7 +534,12 @@ $('b').parent()
         $('#traverse .putHere').html($('#dom-example').html())
     </script>
 </div>
+        <p>Znacznie szybsze od pseudoselektorów</p>
+
 </section>
+
+
+<!--
 <section class="slide" id="selectors"><h2>Selektory</h2>
 
 
@@ -537,6 +599,12 @@ $('b').parent()
     </div>
 
     </section>
+-->
+
+
+<section>
+    <h1>Manipulacja</h1>
+</section>
 
 <section id="manipulation"><h2>Manipulacja</h2>
     <ul>
@@ -597,13 +665,16 @@ $('button').css('border', '5 solid red');
         <div class="span1"></div>
 
         <button class="btn btn-success">AddClass</button>
-        <button class="btn ">ToggleClass</button>
+        <button class="btn btn-nop">ToggleClass</button>
         <button class="btn btn-inverse">AddStyle</button>
         <script type="text/javascript">
             $('#manipulationcss button.btn-success').click(function(){
                 $(this).removeClass('btn-success').addClass('btn-danger')
             })
-            $('#manipulationcss button[text!=ToggleClass]').click(function(){
+            $('#manipulationcss button.btn-nop').click(function(){
+                $(this).toggleClass('btn-info')
+            })
+            $('#manipulationcss button.btn-inverse').click(function(){
                 $(this).css('border', '5px solid red');
             })
         </script>
@@ -736,11 +807,9 @@ $('input').val('Tralla la!');
 
 </section>
 
-
-<section id="domchange3"><h2>Manipulacja</h2>
+<section>
+    <h1>Zdarzenia</h1>
 </section>
-
-
 
 <section id="events">
     <h2>Zdarzenia</h2>
@@ -862,6 +931,11 @@ $('button').change(function(){
     </div>
 </section>
 
+<section>
+    <h1>Ajax</h1>
+</section>
+
+
 <section id="ajax">
     <h2>Ajax</h2>
     <p>AJAX = Asynchronous JavaScript and XML<br/>
@@ -971,9 +1045,95 @@ $.ajax({
     </pre>
 </section>
 
+<section>
+    <h1>Animacja</h1>
+</section>
+
+<section id="animation"><h2>Animacja</h2>
+    <pre class="prettyprint">
+
+$('img').hide()
+$('img').show()
+$('img').fadeIn()
+$('img').fadeOut()
+$('img').fadeToggle()
+$('img').slideDown()
+$('img').slideUp()
+$('img').slideToggle()
+    </pre>
+</section>
+<section id="animation2"><h2>Animacja</h2>
+    <img src="images/bzd-tlab1.png" class="img-rounded"  title="images/bzd-tlab1.png" />
+
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn" effect='hide'>hide</button>
+        <button class="btn" effect='show'>show</button>
+        <button class="btn" effect='fadeToggle'>fade</button>
+        <button class="btn" effect='slideToggle'>slide</button>
+
+        <script type="text/javascript">
+            $('#animation2 button').click(function(){
+                var $butt = $(this)
+                $butt.toggleClass('btn-success')
+                var $img = $('#animation2 img')
+                $img[$butt.attr('effect')]()
+            })
+        </script>
+    </div>
+    <br />
+</section>
+
+<section id="animation3"><h2>Animacja</h2>
+    <pre class="prettyprint " style="display: none">
+$('img').animate({
+    width: '92'
+    }, 2000, function() {
+        $(this).attr('src', 'images/4developers-logo.png')
+
+    </pre>
+    <img src="images/bzd-tlab1.png" class="img-rounded" title="images/bzd-tlab1.png" />
+
+    <div class="well example">
+
+        <div class="span1"></div>
+
+        <button class="btn">Animuj</button>
+
+        <script type="text/javascript">
+            $('#animation3 button').click(function(){
+                var $butt = $(this)
+                $butt.toggleClass('btn-success')
+                var $img = $('#animation3 img')
+                $img.animate({
+                    width: '92'
+                }, 2000, function() {
+                    $(this).attr('src', 'images/4developers-logo.png')
+                    $('#animation3 pre').delay(1000).slideDown('slow')
+                })
+            })
+        </script>
+    </div>
+    <br />
+</section>
+
+
 <section class="slide" id="jezyk">
 <h2>Niespodzianka</h2>
-<h1>Jeżyk</h1>
+<a href="http://localhost/jezyk/" target="_blank"><h1>Jeżyk</h1></a>
+</section>
+
+<section class="slide" id="advices">
+<h2>Dobre rady</h2>
+<ul>
+    <li>sprawdzaj ilość wybranych elementów <strong>$('selektor').length</strong></li>
+    <li>podglądaj <strong>console.log($('selector'))</strong></li>
+    <li>cache'uj wybrane elementy <strong>var $element = $('selektor')</strong></li>
+    <li>używaj zmiennej z $ aby zaznaczyć, że to obiekt jQuery</li>
+    <li>używaj Chrome lub FireFox</li>
+</ul>
 </section>
 
 
@@ -1082,6 +1242,8 @@ $.ajax({
                 var $elem = $(elem)
                 $elem.text($elem.html())
             })
+
+return this
         };
     })( jQuery );
 

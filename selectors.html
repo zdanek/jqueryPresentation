@@ -44,6 +44,9 @@
             width: 900px; /* SET THE WIDTH OF THE MODAL */
             margin: -250px 0 0 -450px; /* CHANGE MARGINS TO ACCOMODATE THE NEW WIDTH (original = margin: -250px 0 0 -280px;) */
         }
+        .exampleClass{
+            background-color: #ddd;
+        }
 
     </style>
     <script type="text/javascript">
@@ -121,14 +124,14 @@
     <div class="row-fluid example">
         <div class="well">
             <div class="span1 dontSelect">div parent</div>
-            <div class="well span2">div1
+            <div class="well span2">div
                 <span class="well small-well">span</span>
             </div>
-            <div class="well span3">div2
+            <div class="well span3">div
                 <i class="icon-fire pull-right dontSelect"></i>
                 <p class="well small-well">Paragraph with <b>bold</b></p></div>
-            <div class="well span2">div3</div>
-            <div class="well span2">div4</div>
+            <div class="well span2">div</div>
+            <div class="well span2">div</div>
             <i class="icon-fire pull-right dontSelect"></i>
         </div>
     </div>
@@ -144,16 +147,14 @@
                     <li>LI child</li>
                 </ul>
                 </li>
-                <li>LI third</li>
+                <li class="exampleClass">LI third</li>
                 <li>LI fourth</li>
                 <li>LI fifth</li>
             </ul>
             </span>
         </div>
         <div class="well span4">
-            <input type="radio" />
-            <input type="checkbox" />
-            <input type="file" />
+           *, div, #div1...6, .exampleClass, .span2, .span3, .span4, :first-child, :even, :odd, :gt(2), :eq(3), even, li:eq(1)
         </div>
         <div class="well span4" >
             <div class="dontSelect">
@@ -161,7 +162,7 @@
                 <p><b class="dontSelect">P</b>This is example paragraph</p>
                 <p><b class="dontSelect">P</b>This is another and contains <b>bold</b>.
                 <p><b class="dontSelect">P</b>After this paragraph there's a span</p>
-                <span><b class="dontSelect">SPAN</b>Yes, this is span</span>
+                <span class="exampleClass"><b class="dontSelect">SPAN</b>Yes, this is span</span>
                 <p><b class="dontSelect">P</b>And here's paragraph again</p>
             </div>
 
@@ -181,9 +182,7 @@
                 </label>
             </form>
         </div>
-    </div>
-    <div class="row-fluid">
-        <div class="alert alert-error hide error" id="errors">
+        <div class="span7 alert alert-error hide error" id="errors">
         </div>
     </div>
 </div>
